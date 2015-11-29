@@ -21,7 +21,10 @@ class Universe {
 	}
 
 	public function generateUserBasket(){
-		return "User`s Basket consists of <b>".count($this->userBasket->getContent())."</b> following Numbers: ".implode ( ", ", $this->userBasket->getContent());
+		$result = array();
+		$result['amount'] = count( $this->userBasket->getContent() );
+		$result['numbers'] = implode ( ", ", $this->userBasket->getContent() );
+		return $result;
 	}
 
 	protected function generateOrdinaryBaskets(){

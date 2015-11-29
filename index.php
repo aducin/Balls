@@ -27,7 +27,7 @@ $taskC = $universe->checkTaskC();
 foreach ( $basketsContent as $singleBasket ){
 	echo $singleBasket."<br>";
 }
-echo $userBasketContent;
+echo "User`s Basket consists of <b>".$userBasketContent['amount']."</b> following Numbers: ".$userBasketContent['numbers'];
 
 if ( !empty ($taskB)){
 	echo '<br><br>Some Results to Task B have been matched!<br>';
@@ -46,4 +46,4 @@ $output = $twig->render('/ballsTemplate.twig.html', array(
 			'basketsContent' => $basketsContent,
 			'userBasketContent' => $userBasketContent,
 			));
-echo $output;
+//echo $output;
