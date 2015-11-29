@@ -1,0 +1,16 @@
+{% extends "baseTemplate.twig.html" %}
+
+{% block title %}
+	<h1 class="finish1">Welcome to the World of Balls!</h1>
+{% endblock %}
+
+{% block body %}
+	<fieldset>
+	{% for singleContent in basketsContent %}
+		<p>{{ singleContent }}</p>
+	{% endfor %}
+	</fieldset>
+	<fieldset>
+		<p>User`s Basket consists of the folowing Numbers: {{ userBasketContent }}</p>
+	</fieldset>
+{% endblock %}
