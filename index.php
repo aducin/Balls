@@ -7,7 +7,9 @@ $templates_dir = $root_dir.'/Templates';
 
 require_once $root_dir.'/Classes/ball.class.php';
 require_once $root_dir.'/Classes/basket.class.php';
+require_once $root_dir.'/Classes/ordinaryBasket.class.php';
 require_once $root_dir.'/Classes/universe.class.php';
+require_once $root_dir.'/Classes/userBasket.class.php';
 
 $twig_lib = $vendor_dir.'/Twig/lib/Twig';
 require_once $twig_lib . '/Autoloader.php';
@@ -40,8 +42,8 @@ if ( !empty ($taskC)){
 	}
 }
 
-/*$output = $twig->render('/ballsTemplate.twig.html', array(
+$output = $twig->render('/ballsTemplate.twig.html', array(
 			'basketsContent' => $basketsContent,
 			'userBasketContent' => $userBasketContent,
 			));
-echo $output;*/
+echo $output;

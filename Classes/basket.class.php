@@ -35,16 +35,3 @@ abstract class Basket {
 	}
 }
 
-
-
-class UserBasket extends Basket {
-
-	protected $maximumAmount = 100;
-
-}
-
-class OrdinaryBasket extends Basket {
-
-	protected $maximumAmount = 2;
-
-}
