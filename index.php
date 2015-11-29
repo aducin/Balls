@@ -25,7 +25,7 @@ $userBasketContent = $universe -> generateUserBasket();
 $taskB = $universe->checkTaskB();
 $taskC = $universe->checkTaskC();
 foreach ( $basketsContent as $singleBasket ){
-	echo $singleBasket."<br>";
+	echo "Basket Number: <b>".$singleBasket['counter']."</b> - Numbers: ".$singleBasket['numbers']."<br>";
 }
 echo "User`s Basket consists of <b>".$userBasketContent['amount']."</b> following Numbers: ".$userBasketContent['numbers'];
 

@@ -14,7 +14,7 @@ class Universe {
 		$basketsContent = array();
 		$counter = 1;
 		foreach ( $this->ordinaryBaskets as $singleBasket ){
-			$basketContent[$counter] = 'Basket number <b>'.$counter."</b> : ".implode( ", ", $singleBasket->getContent() );
+			$basketContent[$counter] = array( 'counter' => $counter, 'numbers' => implode( ", ", $singleBasket->getContent() ));
 			$counter++;
 		}
 		return $basketContent;
