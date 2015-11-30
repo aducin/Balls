@@ -6,13 +6,21 @@ abstract class Basket {
 	protected $currentAmount;
 	protected $content = array();
 
-	function __construct(){
-		$this->generateAmount();
+	function __construct( $amount = null ){
+		if ($amount){
+			$this->generateAmount( $amount );
+		} else {
+			$this->generateAmount();
+		}
 		$this->generateNumbers();
 	}
 
-	protected function generateAmount(){
-		$this->currentAmount = mt_rand( $this->minimumAmount, $this->maximumAmount );
+	protected function generateAmount( $amount = null){
+		if ( $amount ){
+			$this->currentAmount = $amount;
+		} else {
+			$this->currentAmount = mt_rand( $this->minimumAmount, $this->maximumAmount );
+		}
 	}
 
 	protected function generateNumbers(){

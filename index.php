@@ -19,31 +19,30 @@ $twig = new Twig_Environment($loader, array(
 	'cache' => $cache_dir,
 ));
 
-$universe = new Universe();
-$basketsContent = $universe -> displayOrdinaryBaskets();
-$userBasketContent = $universe -> generateUserBasket();
-$taskB = $universe->checkTaskB();
-$taskC = $universe->checkTaskC();
-foreach ( $basketsContent as $singleBasket ){
-	echo "Basket Number: <b>".$singleBasket['counter']."</b> - Numbers: ".$singleBasket['numbers']."<br>";
-}
-echo "User`s Basket consists of <b>".$userBasketContent['amount']."</b> following Numbers: ".$userBasketContent['numbers'];
+if (isset($_POST['back'])){
+	unset ($_POST);
+	$output = $twig->render('/startPage.twig.html');
+	echo $output;
+} elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-if ( !empty ($taskB)){
-	echo '<br><br>Some Results to Task B have been matched!<br>';
-	foreach ($taskB as $singleResult ){
-		echo 'Basket number : '.($singleResult['basketNumber']+1).' - Number : '.implode( ", ",$singleResult['numbers'] ).'<br>';
+	$universe = new Universe();
+	$basketsContent = $universe -> displayOrdinaryBaskets();
+	if ( $_POST['usersBasketAmount'] !="" ){
+		$userBasketContent = $universe -> generateUserBasket( $_POST['usersBasketAmount'] );
+	} else {
+		$userBasketContent = $universe -> generateUserBasket();
 	}
+	$taskB = $universe->checkTaskB();
+	$taskC = $universe->checkTaskC();
+	
+	$output = $twig->render('/ballsTemplate.twig.html', array(
+		'basketsContent' => $basketsContent,
+		'userBasketContent' => $userBasketContent,
+		'taskB' => $taskB,
+		'taskC' => $taskC,
+		));
+	echo $output;
+} else {
+	$output = $twig->render('/startPage.twig.html');
+	echo $output;
 }
-if ( !empty ($taskC)){
-	echo '<br><br>Some Results to Task C have been matched!<br>';
-	foreach ($taskC as $singleResult ){
-		echo 'Basket number : '.($singleResult['basketNumber']+1).' - Number : '.implode( " ",$singleResult['numbers'] ).'<br>';
-	}
-}
-
-$output = $twig->render('/ballsTemplate.twig.html', array(
-			'basketsContent' => $basketsContent,
-			'userBasketContent' => $userBasketContent,
-			));
-//echo $output;

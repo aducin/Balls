@@ -1,16 +1,55 @@
 {% extends "baseTemplate.twig.html" %}
 
-{% block title %}
-	<h1 class="finish1">Welcome to the World of Balls!</h1>
+{% block headTitle %}
+	<title>Drawing Results</title>
 {% endblock %}
 
 {% block body %}
-	<fieldset>
-	{% for singleContent in basketsContent %}
-		<p>{{ singleContent }}</p>
-	{% endfor %}
+	<fieldset class="result">
+		<legend class="legend">Task A</legend>
+		<fieldset id="basketsResult">
+			<p class="center">10-items baskets content:</p>
+			<table cellpadding="2" cellspacing="2">
+				{% for singleContent in basketsContent %}
+					<tr>
+						<td class="table" id="singleNumber">Basket <b>{{ singleContent.counter }}</b>:</td>
+						<td class="table" id="singleBasket">{{ singleContent.numbers }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</fieldset>
+		<fieldset id="userResult">
+				<p class="center">User`s Basket consists of 
+				{% if userBasketContent.amount == 1 %}
+					just one ball: <b>{{ singleContent.numbers }}</b></p>
+				{% else %}
+					<b>{{ userBasketContent.amount }}</b> following Balls:</p> 
+					<p class="center" id="userNumbers">{{ userBasketContent.numbers }}</p>
+				{% endif %}
+		</fieldset>
 	</fieldset>
-	<fieldset>
-		<p>User`s Basket consists of the folowing Numbers: {{ userBasketContent }}</p>
+	<fieldset class="result">
+		<legend class="legend">Task B</legend>
+		{% if taskB == 0 %}
+			<p class="center">Sorry, no results found for the Task B!</p>
+		{% else %}
+			{% for singleResult in taskB %}
+				<p class="center" id="taskC">In basket <b>{{ singleResult.basketNumber }}</b> we`ve found the following numbers: <b>{{ singleResult.numbers }}</b></p>
+			{% endfor %}
+		{% endif %}
 	</fieldset>
+	<fieldset class="result">
+		<legend class="legend">Task C</legend>
+		{% if taskC == 0 %}
+			<p class="center">Sorry, no results found for the Task C!</p>
+		{% else %}
+			{% for singleResult in taskC %}
+				<p class="center" id="taskC">In basket <b>{{ singleResult.basketNumber }}</b> we`ve found the number: <b>{{ singleResult.number }}</b></p>
+			{% endfor %}
+		{% endif %}
+	</fieldset>
+	<form action="" method="post">
+		<input type="hidden" name="back"/>
+		<input type="submit" id="back" value="Back to the Homepage" style="width: 20%; margin-left: 40%;"/>
+	</form>
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends "baseTemplate.twig.html" %}
+
+{% block headTitle %}
+	<title>The World of Balls!</title>
+{% endblock %}
+
+{% block body %}
+<fieldset id="startPage">
+	<fieldset id="welcome">
+		<legend id="legend">Welcome to the World of Balls!</legend>
+		<h2>We are ready to begin fulfilling the baskets.<h2>
+		<h3>However, if you only want, you may decide how many balls we should place in your own basket.<h3>
+		<h4>(if so, just place the amount in the field below)</h4>
+		<form action="" method="post">
+		<label>My basket`s amount</label>
+		<input type="text" name="usersBasketAmount" title="Only one Number, please" placeholder="Put the Number"/>
+		<input type="submit" id="submit" value="Draw the Baskets"/>
+		</form>
+	</fieldset>
+</fieldset>
+{% endblock %}
