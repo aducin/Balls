@@ -40,8 +40,7 @@ class Universe {
 		}
 	}
 
-	public function checkTaskB(){ // I had doubts whether single ball (when ordinaryBasket contains only one ball) should be also valid or not. 
-		//Plural in this situation is not 100% clear so I decided so.
+	public function checkTaskB(){
 		$taskB = array();
 		$counter = 0;
 		$innerCounter = 0;
