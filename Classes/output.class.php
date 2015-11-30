@@ -12,13 +12,12 @@ class Output{
 		$twig_lib = $vendor_dir.'/Twig/lib/Twig';
 		require_once $twig_lib . '/Autoloader.php';
 		Twig_Autoloader::register();
-		$loader = new Twig_Loader_Filesystem($templates_dir);
-		$this->twig = new Twig_Environment($loader, array(
+		$loader = new Twig_Loader_Filesystem( $templates_dir );
+		$this->twig = new Twig_Environment( $loader, array(
 			'cache' => $cache_dir,
 		));
 	}
-
-	public function renderStandardView( $error = null){
+	public function renderStandardView( $error = null ){
 		if ( !isset( $error )){
 		$output = $this->twig->render('/startPage.twig.html');
 		} else {
@@ -28,7 +27,6 @@ class Output{
 		}
 		echo $output;
 	}
-
 	public function renderResultView( $basketsContent, $userBasketContent, $taskB, $taskC ){
 		$output = $this->twig->render('/ballsTemplate.twig.html', array(
 		'basketsContent' => $basketsContent,

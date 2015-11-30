@@ -9,8 +9,7 @@ require_once $root_dir.'/Classes/output.class.php';
 require_once $root_dir.'/Classes/universe.class.php';
 require_once $root_dir.'/Classes/userBasket.class.php';
 
-$output = new Output();
-
+$output = new output();
 if (isset($_POST['back'])){
 	unset ($_POST);
 	$output -> renderStandardView();
