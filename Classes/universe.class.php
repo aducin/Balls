@@ -40,21 +40,21 @@ class Universe {
 		}
 	}
 
-	public function checkTaskB(){
+	public function checkTaskB(){ // I had doubts whether single ball (when ordinaryBasket contains only one ball) should be also valid or not. 
+		//Plural in this situation is not 100% clear so I decided so.
 		$taskB = array();
 		$counter = 0;
 		$innerCounter = 0;
 		foreach ( $this->ordinaryBaskets as $singleBasket ){
 			$tempIntersectionB = array_intersect( $singleBasket->getContent(), $this->userBasket->getContent()  );
-			if ( count( $tempIntersectionB ) > 1 ){
-				$basketMatches = count( $tempIntersectionB );
-				if ( $singleBasket->getCurrentAmount() == $basketMatches ){
-					$taskB[$innerCounter] = array( 
-						'basketNumber' => $counter + 1, 
-						'numbers' => implode( ", ", $tempIntersectionB )
-						);
-					$innerCounter++;
-				}
+			// I had doubts whether single ball (when ordinaryBasket contains only one ball) should be also valid or not.
+			//Plural in this situation is not 100% clear so I decided so ("B. find baskets, that have only balls owned by the user")
+			if ( $singleBasket->getCurrentAmount() == count( $tempIntersectionB ) ){
+				$taskB[$innerCounter] = array( 
+					'basketNumber' => $counter + 1, 
+					'numbers' => implode( ", ", $tempIntersectionB )
+					);
+				$innerCounter++;
 			}
 			$counter++;
 		}

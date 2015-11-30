@@ -2,7 +2,7 @@
 
 class Output{
 
-	private $twig;
+	protected $twig;
 
 	public function __construct(){
 		$root_dir = $_SERVER['DOCUMENT_ROOT'].'/Balls';
@@ -16,24 +16,5 @@ class Output{
 		$this->twig = new Twig_Environment( $loader, array(
 			'cache' => $cache_dir,
 		));
-	}
-	public function renderStandardView( $error = null ){
-		if ( !isset( $error )){
-		$output = $this->twig->render('/startPage.twig.html');
-		} else {
-			$output = $this->twig->render('/startPage.twig.html', array(
-				'error' => 'Please insert the number between 1 and 100',
-			));
-		}
-		echo $output;
-	}
-	public function renderResultView( $basketsContent, $userBasketContent, $taskB, $taskC ){
-		$output = $this->twig->render('/ballsTemplate.twig.html', array(
-		'basketsContent' => $basketsContent,
-		'userBasketContent' => $userBasketContent,
-		'taskB' => $taskB,
-		'taskC' => $taskC,
-		));
-		echo $output;
 	}
 }

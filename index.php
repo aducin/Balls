@@ -6,12 +6,14 @@ require_once $root_dir.'/Classes/ball.class.php';
 require_once $root_dir.'/Classes/basket.class.php';
 require_once $root_dir.'/Classes/ordinaryBasket.class.php';
 require_once $root_dir.'/Classes/output.class.php';
+require_once $root_dir.'/Classes/resultOutput.class.php';
+require_once $root_dir.'/Classes/standardOutput.class.php';
 require_once $root_dir.'/Classes/universe.class.php';
 require_once $root_dir.'/Classes/userBasket.class.php';
 
-$output = new output();
 if (isset($_POST['back'])){
 	unset ($_POST);
+	$output = new standardOutput();
 	$output -> renderStandardView();
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -33,10 +35,13 @@ if (isset($_POST['back'])){
 	if ( !isset( $error )){
 		$taskB = $universe->checkTaskB();
 		$taskC = $universe->checkTaskC();
+		$output = new resultOutput();
 		$output -> renderResultView( $basketsContent, $userBasketContent, $taskB, $taskC );
 	} else {
+		$output = new standardOutput();
 		$output -> renderStandardView( $error );
 	}
 } else {
+	$output = new standardOutput();
 	$output -> renderStandardView();
 }
