@@ -27,10 +27,24 @@ if (isset($_POST['back'])){
 
 	$universe = new Universe();
 	$basketsContent = $universe -> displayOrdinaryBaskets();
-	if ( $_POST['usersBasketAmount'] !="" ){
+	if (preg_match( '/^[0-9]{1,3}$/', $_POST['usersBasketAmount'] )){
+		if ( $_POST['usersBasketAmount'] >=1 AND $_POST['usersBasketAmount'] <=100 ){
 		$userBasketContent = $universe -> generateUserBasket( $_POST['usersBasketAmount'] );
+		} else {
+			$output = $twig->render('/startPage.twig.html', array(
+				'error' => 'Please insert the number between 1 and 100',
+			));
+			echo $output;
+		}
 	} else {
+		if ( $_POST['usersBasketAmount'] != '' ){
+			$output = $twig->render('/startPage.twig.html', array(
+				'error' => 'Please insert the number between 1 and 100',
+			));
+			echo $output;
+		} else {
 		$userBasketContent = $universe -> generateUserBasket();
+		}
 	}
 	$taskB = $universe->checkTaskB();
 	$taskC = $universe->checkTaskC();

@@ -35,6 +35,10 @@ input{
 	font-size: 18px;
 }
 
+.error{
+	color: red;
+}
+
 .legend{
 	width: 10%;
 	margin-left: 44%;

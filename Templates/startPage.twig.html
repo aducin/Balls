@@ -13,9 +13,12 @@
 		<h4>(if so, just place the amount in the field below)</h4>
 		<form action="" method="post">
 		<label>My basket`s amount</label>
-		<input type="text" name="usersBasketAmount" title="Only one Number, please" placeholder="Put the Number"/>
+		<input type="text" name="usersBasketAmount" title="Between 1 and 100, please!" placeholder="Put the Number"/>
 		<input type="submit" id="submit" value="Draw the Baskets"/>
-		</form>
+		{% if error %}
+		<p class="error">{{ error }}</p>
+		{% endif %}
+		</form>	
 	</fieldset>
 </fieldset>
 {% endblock %}
