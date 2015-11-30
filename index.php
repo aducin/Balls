@@ -21,20 +21,22 @@ if (isset($_POST['back'])){
 		if ( $_POST['usersBasketAmount'] >=1 AND $_POST['usersBasketAmount'] <=100 ){
 		$userBasketContent = $universe -> generateUserBasket( $_POST['usersBasketAmount'] );
 		} else {
-			$error = 'Please insert the number between 1 and 100';
+			$error = true;
 			$output -> renderStandardView( $error );
 		}
 	} else {
 		if ( $_POST['usersBasketAmount'] != '' ){
-			$error = 'Please insert the number between 1 and 100';
+			$error = true;
 			$output -> renderStandardView( $error );
 		} else {
 		$userBasketContent = $universe -> generateUserBasket();
 		}
 	}
-	$taskB = $universe->checkTaskB();
-	$taskC = $universe->checkTaskC();
-	$output -> renderResultView( $basketsContent, $userBasketContent, $taskB, $taskC );
+	if ( !isset( $error )){
+		$taskB = $universe->checkTaskB();
+		$taskC = $universe->checkTaskC();
+		$output -> renderResultView( $basketsContent, $userBasketContent, $taskB, $taskC );
+	}
 } else {
 	$output -> renderStandardView();
 }
