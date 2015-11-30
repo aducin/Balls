@@ -58,7 +58,7 @@ class Universe {
 			}
 			$counter++;
 		}
-		return isset( $taskB[0] ) ? $taskB : 0;
+		return count( $taskB ) ? $taskB : 0;
 	}
 
 	public function checkTaskC(){
@@ -76,6 +76,6 @@ class Universe {
 			}
 			$counter++;
 		}
-		return isset( $taskC[0] ) ? $taskC : 0;
+		return count( $taskC ) ? $taskC : 0;
 	}
 }
