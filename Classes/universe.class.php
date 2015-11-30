@@ -22,7 +22,7 @@ class Universe {
 		return $basketContent;
 	}
 
-	public function generateUserBasket( $amount = null){
+	public function generateUserBasket( $amount = null ){
 		$result = array();
 		if ( $amount ){
 			$this->userBasket = new UserBasket( $amount );
@@ -41,47 +41,41 @@ class Universe {
 	}
 
 	public function checkTaskB(){
+		$taskB = array();
 		$counter = 0;
 		$innerCounter = 0;
 		foreach ( $this->ordinaryBaskets as $singleBasket ){
-			$resultTaskB = array_intersect( $singleBasket->getContent(), $this->userBasket->getContent()  );
-			if ( count( $resultTaskB ) > 1 ){
-				$basketMatches = count( $resultTaskB );
+			$tempIntersectionB = array_intersect( $singleBasket->getContent(), $this->userBasket->getContent()  );
+			if ( count( $tempIntersectionB ) > 1 ){
+				$basketMatches = count( $tempIntersectionB );
 				if ( $singleBasket->getCurrentAmount() == $basketMatches ){
 					$taskB[$innerCounter] = array( 
 						'basketNumber' => $counter + 1, 
-						'numbers' => implode( ", ", $resultTaskB )
+						'numbers' => implode( ", ", $tempIntersectionB )
 						);
 					$innerCounter++;
 				}
 			}
 			$counter++;
 		}
-		if ( isset ( $taskB )){
-			return $taskB;
-		} else {
-			return 0;
-		}
+		return isset( $taskB[0] ) ? $taskB : 0;
 	}
 
 	public function checkTaskC(){
+		$taskC = array();
 		$counter = 0;
 		$innerCounter = 0;
 		foreach ( $this->ordinaryBaskets as $singleBasket ){
-			$resultTaskC = array_intersect( $singleBasket->getContent(), $this->userBasket->getContent()  );
-			if ( count( $resultTaskC ) == 1 ){
+			$tempIntersectionC = array_intersect( $singleBasket->getContent(), $this->userBasket->getContent()  );
+			if ( count( $tempIntersectionC ) == 1 ){
 				$taskC[$innerCounter] = array( 
 					'basketNumber' => $counter + 1, 
-					'number' =>implode( ", ", $resultTaskC ) 
+					'number' =>implode( ", ", $tempIntersectionC ) 
 					);
 				$innerCounter++;
 			}
 			$counter++;
 		}
-		if ( isset ( $taskC )){
-			return $taskC;
-		} else {
-			return 0;
-		}
+		return isset( $taskC[0] ) ? $taskC : 0;
 	}
 }

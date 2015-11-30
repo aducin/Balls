@@ -22,7 +22,7 @@
 		<fieldset id="userResult">
 				<p class="center">User`s Basket consists of 
 				{% if userBasketContent.amount == 1 %}
-					just one ball: <b>{{ singleContent.numbers }}</b></p>
+					just one ball: <b>{{ userBasketContent.numbers }}</b></p>
 				{% else %}
 					<b>{{ userBasketContent.amount }}</b> following Balls:</p> 
 					<p class="center" id="userNumbers">{{ userBasketContent.numbers }}</p>
