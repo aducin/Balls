@@ -13,7 +13,7 @@
 			<table cellpadding="2" cellspacing="2">
 				{% for singleContent in basketsContent %}
 					<tr>
-						<td class="table" id="singleNumber">Basket <b>{{ singleContent.counter }}</b>:</td>
+						<td class="table" id="singleNumber">Basket No. <b>{{ singleContent.counter }}</b>:</td>
 						<td class="table" id="singleBasket">{{ singleContent.numbers }}</td>
 					</tr>
 				{% endfor %}
@@ -35,7 +35,7 @@
 			<p class="center">Sorry, no results found for the Task B!</p>
 		{% else %}
 			{% for singleResult in taskB %}
-				<p class="center" id="taskC">In basket <b>{{ singleResult.basketNumber }}</b> we`ve found the following numbers: <b>{{ singleResult.numbers }}</b></p>
+				<p class="center" id="taskC">In basket No. <b>{{ singleResult.basketNumber }}</b> we`ve found the following numbers: <b>{{ singleResult.numbers }}</b></p>
 			{% endfor %}
 		{% endif %}
 	</fieldset>
@@ -45,7 +45,7 @@
 			<p class="center">Sorry, no results found for the Task C!</p>
 		{% else %}
 			{% for singleResult in taskC %}
-				<p class="center" id="taskC">In basket <b>{{ singleResult.basketNumber }}</b> we`ve found the number: <b>{{ singleResult.number }}</b></p>
+				<p class="center" id="taskC">In basket No. <b>{{ singleResult.basketNumber }}</b> we`ve found the number: <b>{{ singleResult.number }}</b></p>
 			{% endfor %}
 		{% endif %}
 	</fieldset>
