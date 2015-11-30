@@ -22,12 +22,10 @@ if (isset($_POST['back'])){
 		$userBasketContent = $universe -> generateUserBasket( $_POST['usersBasketAmount'] );
 		} else {
 			$error = true;
-			$output -> renderStandardView( $error );
 		}
 	} else {
 		if ( $_POST['usersBasketAmount'] != '' ){
 			$error = true;
-			$output -> renderStandardView( $error );
 		} else {
 		$userBasketContent = $universe -> generateUserBasket();
 		}
@@ -36,6 +34,8 @@ if (isset($_POST['back'])){
 		$taskB = $universe->checkTaskB();
 		$taskC = $universe->checkTaskC();
 		$output -> renderResultView( $basketsContent, $userBasketContent, $taskB, $taskC );
+	} else {
+		$output -> renderStandardView( $error );
 	}
 } else {
 	$output -> renderStandardView();
