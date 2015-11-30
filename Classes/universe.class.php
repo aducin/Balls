@@ -41,7 +41,6 @@ class Universe {
 	}
 
 	public function checkTaskB(){
-		$checkTaskB = array();
 		$counter = 0;
 		$innerCounter = 0;
 		foreach ( $this->ordinaryBaskets as $singleBasket ){
@@ -66,7 +65,6 @@ class Universe {
 	}
 
 	public function checkTaskC(){
-		$taskC = array();
 		$counter = 0;
 		$innerCounter = 0;
 		foreach ( $this->ordinaryBaskets as $singleBasket ){

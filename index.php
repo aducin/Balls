@@ -48,7 +48,6 @@ if (isset($_POST['back'])){
 	}
 	$taskB = $universe->checkTaskB();
 	$taskC = $universe->checkTaskC();
-	
 	$output = $twig->render('/ballsTemplate.twig.html', array(
 		'basketsContent' => $basketsContent,
 		'userBasketContent' => $userBasketContent,
