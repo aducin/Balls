@@ -46,8 +46,8 @@ class Universe {
 		$innerCounter = 0;
 		foreach ( $this->ordinaryBaskets as $singleBasket ){
 			$tempIntersectionB = array_intersect( $singleBasket->getContent(), $this->userBasket->getContent()  );
-			// I had doubts whether single ball (when ordinaryBasket contains only one ball) should be also valid or not.
-			//Plural in this situation is not 100% clear so I decided so ("B. find baskets, that have only balls owned by the user")
+			// I had doubts whether a single ball (when ordinaryBasket contains one ball only) should be also valid or not.
+			//Plural is not 100% unambiguous in this context so I decided so ("B. find baskets, that have only balls owned by the user")
 			if ( $singleBasket->getCurrentAmount() == count( $tempIntersectionB ) ){
 				$taskB[$innerCounter] = array( 
 					'basketNumber' => $counter + 1, 
