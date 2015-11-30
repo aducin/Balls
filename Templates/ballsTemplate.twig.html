@@ -35,7 +35,7 @@
 			<p class="center">Sorry, no results found for the Task B!</p>
 		{% else %}
 			{% for singleResult in taskB %}
-				<p class="center" id="taskC">In basket No. <b>{{ singleResult.basketNumber }}</b> we`ve found the following numbers: <b>{{ singleResult.numbers }}</b></p>
+				<p class="center" id="taskC">In basket No. <b>{{ singleResult.basketNumber }}</b> we`ve found the following result: <b>{{ singleResult.numbers }}</b></p>
 			{% endfor %}
 		{% endif %}
 	</fieldset>
