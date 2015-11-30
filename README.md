@@ -1,7 +1,7 @@
 # Balls
 
-Balls-project allows the user to draw 30 standard baskets with randomly chosen (from 1 to 10) amount of unique 
-numbered-balls (between 1 and 999).
+Balls-project allows the user to draw 30 standard baskets with randomly chosen (from 1 to 10) amount of unique-numbered
+ balls (between 1 and 999).
 The user may also dispose of his own basket that contains up to 100 items (the amount of user`s basket may be set 
 before the drawing begins).
 
