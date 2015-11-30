@@ -1,6 +1,6 @@
 <?php
 
-class Output{
+abstract class Output{
 
 	protected $twig;
 
