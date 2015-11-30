@@ -6,8 +6,8 @@ The user may also dispose of his own basket that contains up to 100 items (the a
 before the drawing begins).
 
 The script displays the content of every basket and check if any of the following situations happened:
+- single basket contains only balls (more than one) owned by the user
 - there is only one user`s ball in the single basket
-- single basket contains only balls owned by the user
 
 
 The project has been written in following technologies:
